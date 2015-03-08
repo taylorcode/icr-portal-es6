@@ -1,0 +1,6 @@
+<nav class="icr-port-sub-section-nav">
+	<ul>
+		<li ng-repeat="state in $state.children($state.activeDirectChild('navigation.sub').name)" ui-sref="{{state.name}}" ui-sref-active="icr-active">{{state.data.name}}</li>
+	</ul>
+</nav>
+<ui-view></ui-view>

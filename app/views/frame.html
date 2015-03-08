@@ -1,0 +1,48 @@
+<div class="icr-port-frame">
+
+	<icr-main-loader></icr-main-loader>
+
+	<icr-ui-messenger class="icr-ui-messenger--assure" icr-v-loaded-delay="1000"></icr-ui-messenger>
+
+	<div ng-if="!session.id && $state.current.name != 'login'"><a ui-sref="login">{{storage.user.firstName}}, log in here</a></div>
+
+	<icr-menu ng-show="session.id" icr-v-options="frame.accountMenu" class="icr-port-user-unit-wrapper">
+		<icr-menu-select class="icr-main-user-unit">
+			<p class="icr-main-link-dropdown">{{storage.user.firstName}} {{storage.user.lastName.charAt(0)}}</p>
+		<!-- 	<a ui-sref="account.profile">GO HOOOMEE</a> -->
+			<img ui-sref="account.profile" ng-if="frame.picture.ref.thumbnail" ng-src="{{frame.picture.ref.thumbnail}}">
+			<i ng-if="!frame.picture.ref.thumbnail"></i>
+		</icr-menu-select>
+		<icr-content>
+			<div class="icr-port-user-account-nav">
+				<div class="icr-port-user-account-credentials">
+					<span>{{storage.user.firstName}} {{storage.user.lastName}}</span>
+					<p>{{storage.user.email}}</p>
+				</div>
+				<ul>
+<!-- 				<li>
+						<a ui-sref="dashboard">Dashboard</a>
+					</li>
+					<li>
+						<a ui-sref="devices">Your Devices</a>
+					</li>
+					<li>
+						<a ui-sref="activity">Your Activity</a>
+					</li> RELEASENOTE FEATURE -->
+					<li>
+						<a ui-sref="membership">Your Membership</a>
+					</li>
+					<li>
+						<a ui-sref="account">Account</a>
+					</li>
+					<li>
+						<a auth-logout href>Sign Out</a>
+					</li>
+				</ul>
+			</div>
+		</icr-content>
+	</icr-menu>
+
+	<ui-view></ui-view>
+
+</div>

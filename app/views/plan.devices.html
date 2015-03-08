@@ -1,0 +1,46 @@
+<div class="icr-port-view-plan-devices">
+	<!-- <div class="icr-port-top-switch">
+		<p class="icr-port-active-switch"><a href="#" class="icr-port-link-padding">{{(plan.plan.devices | filter:{status:'active'}).length}} active</a><a href="#">{{plan.plan.devices.length}} available</a></p>
+		<p><a href="#" class="icr-main-link">Add Device</a></p> 
+	</div>RELEASENOTE FEATURE-->
+
+	<table class="icr-port-table-item-list">
+		<thead>
+			<tr>
+				<th>Device</th>
+				<th>Date Added</th>
+				<th>Status</th>
+<!-- 				<th>Services</th>
+				<th></th> -->
+			</tr>
+		</thead>
+
+		<tr ng-repeat="device in plan.plan.devices">
+			<td>{{device.title}}<br>
+			<small>{{device.nickname}}</small></td>
+			<td>{{device.added | date:'shortDate'}}</td>
+			<td>{{device.status}}</td>
+<!-- 			<td>
+				<div class="icr-main-link-selection">
+					<p><a ng-href="{{icrPageInfo.origin}}/repair/{{device.uris.repair}}?deviceId={{device.id}}" target="_blank" class="icr-main-link">Repair</a> / <a ng-href="{{icrPageInfo.origin}}/sell/{{device.uris.sell}}?deviceId={{device.id}}" target="_blank" class="icr-main-link-accent">Trade-In</a></p>
+				</div>
+			</td> -->
+<!-- 			<td>
+				<icr-menu>
+					<icr-menu-select>
+						<div class="icr-port-options"></div>
+					</icr-menu-select>
+					<icr-content>
+						<div class="icr-port-small-dropdown-options">
+							<ul>
+								<li>Device Details</li>
+								<li>Remove Details</li>
+								<li>Transfer Plan</li>
+							</ul>
+						</div>
+					</icr-content>
+				</icr-menu>
+			</td> -->
+		</tr>
+	</table>
+</div>

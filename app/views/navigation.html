@@ -1,0 +1,10 @@
+<div class="icr-port-content">
+    <nav class="icr-port-nav"> 
+        <ul>
+            <li ui-router-state-repeat ui-sref="{{state.name}}" ui-sref-active="icr-active" ng-class="'icr-port-nav-' + state.name" ng-if="state.title"><span class="media-content">{{state.title}}</span></li>
+        </ul>
+    </nav>
+    <div class="icr-port-view-navigation">
+        <ui-view></ui-view>
+    </div>
+</div>

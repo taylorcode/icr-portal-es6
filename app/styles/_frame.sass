@@ -1,0 +1,33 @@
+.icr-port-frame
+	$large-space: 50px
+	$medium-space: 30px
+	$small-space: 20px
+	
+	margin: 0 auto
+	padding-bottom: 40px
+	
+	+media(large-screens)
+		margin-top: $large-space
+		width: 1200px
+	+media(medium-screens)
+		margin-top: $medium-space
+		width: 1000px
+	+media(small-screens)
+		margin-top: $small-space
+	+media(handhelds)
+		margin-top: $medium-space
+	.icr-port-nav
+		+media(large-screens)
+			margin-right: $large-space
+		+media(medium-screens)
+			margin-right: $medium-space
+		+media(small-screens)
+			margin-right: $small-space
+			
+.icr-port-content
+	+media(except-handhelds)
+		+display-flex
+	+media(small-screens)
+		padding-right: 25px
+	+media(handhelds)
+		padding: 0 15px 0 15px

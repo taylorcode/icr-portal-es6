@@ -1,0 +1,46 @@
+{
+	"colorpalette": {
+		"tintgray": "#F0F4F9",
+		"lightergray": "#CDD7E4",
+		"mediumgray": "#AEBCCE",
+		"bodygray": "#5B6675",
+		"darkgray": "#3B444F",
+		"brandblue": "00AAE8",
+		"brandgreen": "#86CB64",
+		"lightbrandblue": "#ACDEF0",
+		"lightbrandgreen": "#C1E3AF",
+		"yellow": "#F4EB67",
+		"darkerred":"#E74A3C"
+	},
+	"colortheme": {
+		"type": {
+			"body-copy": "bodygray",
+			"auxillary-copy": "mediumgray",
+			"header-copy": "bodygray",
+			"placeholder-copy": "lightergray",
+			"link-copy": "brandblue",
+			"repair-copy": "brandblue",
+			"sell-copy": "brandgreen"
+		},
+		"states": {
+			"active-state": "brandblue",
+			"sell-active-state": "brandgreen",
+			"disabled-state": "lightergray"
+		},
+		"uibb": {
+			"default-border": "lightergray",
+			"body-background": "tintgray",
+			"portal-nav-background": "lightergray",
+			"error-border": "darkerred",
+			"success-border": "brandgreen",
+			"active-border": "brandblue",
+			"input-background": "tintgray"
+		},
+		"highlights": {
+			"highlight-error": "#F5B3AE",
+			"highlight-success": "lightbrandgreen",
+			"highlight-warning": "#F9F4Ae",
+			"highlight-announcement": "lightbrandblue"
+		}
+	}
+}

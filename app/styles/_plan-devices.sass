@@ -1,0 +1,44 @@
+.icr-port-top-switch
+	margin-bottom: 10px
+	+media(above-small-screens)
+		+display-flex
+		justify-content: space-between
+	+media(handhelds)
+		padding-bottom: 30px
+	.icr-port-link-padding
+		padding-right: 30px
+	.icr-port-active-switch
+		a
+			color: color(body-copy)
+			&:hover
+				color: color(disabled-state)
+
++create-media(icr-options, (top, standard, before))
+	no-op: 1
+
+.icr-port-view-plan-devices
+	.icr-port-table-item-list
+		.icr-port-options
+			position: relative
+			+get-media(icr-options, '.svg-ico-portal-account')
+			&::before
+				position: absolute
+				top: -10px
+				right: -10px
+		+media(handhelds)
+			td
+				&:nth-of-type(1):before 
+					content: "Device:"
+				&:nth-of-type(2):before 
+					content: "Date Added:"
+				&:nth-of-type(3):before 
+					content: "Status:"
+
+.icr-port-table-item-list .icr-port-options::before
+	background-size: 60%
+
+.icr-port-view-plan-devices
+	.icr-port-small-dropdown-options
+		left: -200px
+		top: 35px
+		position: absolute

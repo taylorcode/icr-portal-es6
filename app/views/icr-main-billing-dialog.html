@@ -1,0 +1,36 @@
+<form name="cardForm" ng-submit="billingDialog.update(card)" class="icr-main-form">
+	
+	<div class="icr-port-modal-header">
+		<h3>Edit your billing information</h3>
+	</div>
+
+	<div class="icr-port-modal-content">
+		<span class="payment-errors"></span>
+
+		<fieldset>
+			<div class="icr-main-billing-dialog-card">
+				<label>
+					<span>Card Number</span>
+					<div class="icr-ccard icr-ccard-type-{{type}}">
+						<input type="text" class="icr-main-input" ng-model="card.number" payments-validate="card" payments-type-model="type" payments-format="card" required>
+					</div>
+				</label>
+			</div>
+			<div class="icr-main-billing-dialog-card-info">
+				<label> 
+					<span>CVC</span>
+					<input type="text" class="icr-main-input icr-ccard-cvc" ng-model="card.cvc" payments-validate="cvc" payments-format="cvc" required>
+				</label>
+				<label>
+					<span>Expiration</span>
+					<input type="text" placeholder="(MM/YYYY)" class="icr-main-input--expiration" ng-model="card.expiry" payments-validate="expiry" payments-format="expiry" required>
+				</label>
+			</div>
+			<div class="icr-main-billing-dialog-submit">
+				<input type="submit" class="icr-main-button" ng-disabled="cardForm.$invalid || !cardForm.modified || cardForm.$submitted" value="Update">
+
+				<button ng-click="modalBilling.close()" class="icr-simple-button">Cancel</button>
+			</div>
+		</fieldset>
+	</form>
+</div>

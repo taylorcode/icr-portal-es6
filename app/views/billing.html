@@ -1,0 +1,53 @@
+<div class="icr-port-view-billing">
+	<h3>Your Membership<span ng-if="billing.billing.length > 1">s</span></h3>
+
+	<table class="icr-port-table-item-list-membership">
+		<tr>
+			<td>Subscription Summary</td>
+			<td>You have {{billing.billing.length}} active membership<span ng-if="billing.billing.numPlans > 1">s</span> costing {{billing.billing | total:'cost' | currency}}/month&nbsp;&nbsp;&nbsp;<a ui-sref="plans.current" class="icr-main-link">View</a></td>
+		</tr>
+	</table>
+
+<!-- 	<icr-port-billing-plan-summary icr-v-billing-plan="billing.billing[0]"></icr-port-billing-plan-summary>
+ -->
+	<table class="icr-port-table-item-list-membership">
+		<tr>
+			<td>Billing Period</td>
+			<td colspan="2">You will be billed next on {{billingPlan.dueDate | date}}</td>
+		</tr>
+		<tr>
+			<td>Payment Source</td>
+			<td>You are currently using a {{billingPlan.payment.cardType}} card ending in {{billingPlan.payment.lastFour}}<a ui-sref="account.billing.edit" class="icr-main-link">Change</a></td>
+		</tr>
+		<tr>
+			<td>Cost</td>
+			<td colspan="2">This plan costs {{billingPlan.cost | currency}} per {{billingPlan.plan.period | timeAdjToNoun}}</td>
+		</tr>
+	</table>
+
+	<div ng-if="billing.billing.length > 1">
+
+		<p>To view specific plan information, including billing cycle, payment information and detailed billing history, select the desired plan below.</p>
+		<table class="icr-port-table-item-list-membership">
+			<thead>
+				<tr>
+					<th>Plan</th>
+					<th>Rate</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tr ng-repeat="bill in billing.billing">
+				<td>{{bill.plan.devices[0].title}}</td>
+				<td>{{bill.cost | currency}}/{{bill.plan.period | timeAdjToNoun}}</td>
+				<td><a ui-sref="account.billing.plan({planId: bill.plan.id})">View</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<h3>Billing History</h3>
+	<icr-port-billing-history icr-v-bills="billing.bills"></icr-port-billing-history>
+	
+</div>
+
+<!-- NOTE technical artifact to allow child billing.edit to be routeable, no view actually opens in here -->
+<ui-view></ui-view>

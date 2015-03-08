@@ -1,0 +1,18 @@
+<table class="icr-port-table-item-list">
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Invoice #</th>
+			<th>Description</th>
+			<th>Amount</th>
+			<!-- <th></th> RELEASENOTE FEATURE -->
+		</tr>
+	</thead>
+	<tr ng-repeat="bill in bills">
+		<td>{{bill.date | date}}</td>
+		<td>{{bill.invoiceNumber}}</td>
+		<td>{{bill.description}}</td>
+		<td>{{bill.amount | currency}}</td>
+		<!-- <td><a>View</a></td> RELEASENOTE FEATURE -->
+	</tr>
+</table>

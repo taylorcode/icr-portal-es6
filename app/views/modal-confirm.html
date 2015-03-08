@@ -1,0 +1,29 @@
+<!-- this should be bumped to main, make the modals for all apps consistant -->
+<!--
+	TODO
+	make icr-main-button-aux === icr-main-button--aux
+-->
+
+<div class="icr-port-modal-overlay">
+	
+	<div class="icr-port-modal">
+		
+<!--can't wrap in same element because want to separate title from modal
+<div class="icr-port-modal-header"></div>
+-->
+		<div class="icr-port-modal-header">
+			<button ng-click="modalConfirm.stop()" class="icr-port-modal-close"><div class="content-media"></div></button>
+			<h3>{{header}}</h3>
+		</div>
+
+		<div class="icr-port-modal-content">
+			<p>{{message}}</p>
+		</div>
+		
+		<div class="icr-port-modal-button-group">
+			<button class="icr-main-button" ng-click="modalConfirm.continue()">Continue</button>
+			<button class="icr-simple-button" ng-click="modalConfirm.stop()">Cancel</button>
+		</div>
+		
+	</div>
+</div>

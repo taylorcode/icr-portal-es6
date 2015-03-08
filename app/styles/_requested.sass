@@ -1,0 +1,49 @@
+.icr-port-view-requested
+	h1
+		text-align: center
+	.center
+		text-align: center
+	.icr-port-attention
+		margin-top: 30px
+	&-top-details
+		+media(above-small-screens)	
+			+display-flex
+			justify-content: space-between
+		margin-bottom: 30px
+		padding-bottom: 30px
+		+add-border(bottom)
+		
+		h4
+			a
+				font-family: ProximaNova-normal
+		p
+			margin-bottom: 20px
+
+	&-personal
+		+media(handhelds)	
+			margin-bottom: 30px
+
+	&-bottom-details
+		+media(except-handhelds)	
+			+display-flex
+			justify-content: space-between
+		h4
+			a
+				font-family: ProximaNova-normal
+		p
+			margin-bottom: 20px
+		.icr-extra-info
+			border: 2px dashed gray
+			@include border-radius (4px)
+			padding: 20px
+			text-align: center
+			p
+				margin-bottom: 0
+	&-itech
+		width: 300px
+		+media(handhelds)	
+			margin-bottom: 30px
+
+		.itech-image-wrapper
+			+display-flex
+			justify-content: space-between

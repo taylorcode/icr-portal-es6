@@ -1,0 +1,306 @@
+<div class="icr-dev-class-list icr-main-content">
+	<h3>Color Palette</h3>
+	<p>This is the main color palette for the theme's below. Every variable from the themes section is either grabbing one of these colors or altering it.</p>
+	<div>
+		<div class="icr-dev-component-colors-container">
+			<div ng-repeat="(key,val) in data.colorpalette" class="icr-components-colors-{{::key}}">
+				<span class="icr-components-color">{{::val}}</span>
+				<span>${{::key}}</span>
+			</div>
+		</div>
+	</div>
+	<h3>Color Theme - Type</h3>
+	<div>
+		<div class="icr-dev-component-colors-container">
+			<div ng-repeat="(key,val) in data.colortheme.type" class="icr-components-colors-{{::key}}">
+				<span class="icr-components-color">{{::val}}</span>
+				<span>${{::key}}</span>
+			</div>
+		</div>
+	</div>
+	<h3>Color Theme - States</h3>
+	<div>
+		<div class="icr-dev-component-colors-container">
+			<div ng-repeat="(key,val) in data.colortheme.states" class="icr-components-colors-{{::key}}">
+				<span class="icr-components-color">{{::val}}</span>
+				<span>${{::key}}</span>
+			</div>
+		</div>
+	</div>
+	<h3>Color Theme - UIBB</h3>
+	<div>
+		<div class="icr-dev-component-colors-container">
+			<div ng-repeat="(key,val) in data.colortheme.uibb" class="icr-components-colors-{{::key}}">
+				<span class="icr-components-color">{{::val}}</span>
+				<span>${{::key}}</span>
+			</div>
+		</div>
+	</div>
+	<h3>Color Theme - Highlights</h3>
+	<div>
+		<div class="icr-dev-component-colors-container">
+			<div ng-repeat="(key,val) in data.colortheme.highlights" class="icr-components-colors-{{::key}}">
+				<span class="icr-components-color">{{::val}}</span>
+				<span>${{::key}}</span>
+			</div>
+		</div>
+	</div>
+
+	<h1>Components for Portal Project</h1>
+	
+	<h3>Customer Portal Side Nav</h3>
+	<div class="icr-dev-component">
+		<nav class="icr-port-nav">
+			<ul>
+				<li class="ico-port-nav-dashboard"><span class="media-content">Dashboard</span></li>
+				<li class="icr-port-nav-devices"><span class="media-content">Devices</span></li>
+				<li class="icr-port-nav-activity"><span class="media-content">Activity</span></li>
+				<li class="icr-port-nav-membership"><span class="media-content">Advantage</span></li>
+				<li class="icr-port-nav-account"><span class="media-content">Account</span></li>
+				<li class="icr-port-nav-support"><span class="media-content">Help</span></li>
+				<li class="icr-port-nav-feedback"><span class="media-content">Feedback</span></li>
+			</ul>
+		</nav>
+	</div>
+
+	<h3>Customer Portal Dropdown Nav</h3>
+	<div class="icr-dev-component">
+		<!-- Delete "Remove Position" class when using-->
+		<div class="icr-port-user-account-nav remove-position">
+			<div class="icr-port-user-account-credentials">
+				<span>Phil Keys</span>
+				<p>phil@icracked.com</p>
+			</div>
+			<ul>
+
+				<li>
+					<a href="#">Dashboard</a>
+				</li>
+				<li>
+					<a href="#">Your Devices</a>
+				</li>
+				<li>
+					<a href="#">Your Activity</a>
+				</li>
+				<li>
+					<a href="#">Your Advantage</a>
+				</li>
+				<li>
+					<a href="#">Account</a>
+				</li>
+				<li>
+					<a href="#">Sign Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<h3>Main Content Header &amp; Table Item List</h3>
+	<div class="icr-dev-component">
+		<div class="icr-port-main-content-header">
+			<h2>Billing History</h2>
+			<table class="icr-port-table-item-list">
+				<thead>
+					<tr>
+						<th><span>Date</span></th>
+						<th><span>Invoice #</span></th>
+						<th><span>Description</span></th>
+						<th><span>Amount</span></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>DATE</td>
+						<td><span>45GI83</span></td>
+						<td>(1) Protection Plan</td>
+						<td>$7.00</td>
+						<td> <a href="#">View</a></td>
+					</tr>
+					<tr>
+						<td>DATE</td>
+						<td><span>45GI83</span></td>
+						<td>(1) Protection Plan</td>
+						<td>$7.00</td>
+						<td> <a href="#">View</a></td>
+					</tr>
+					<tr>
+						<td>DATE</td>
+						<td><span>45GI83</span></td>
+						<td>(1) Protection Plan</td>
+						<td>$7.00</td>
+						<td> <a href="#">View</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<h3>User Unit</h3>
+	<div class="icr-dev-component">
+		<div class="icr-main-user-unit">
+			<p class="icr-main-link-dropdown">Phil Keys</p>
+			<img src="/public/modules/portal/app/images/photos/account-image-placeholder.png" />
+		</div>
+	</div>
+
+	<h3>Upload Area</h3>
+	<div class="icr-dev-component">
+		<div class="icr-port-upload">
+			<h4>Picture</h4>
+			<div class="icr-port-upload-drop-zone">
+				<p><span>Choose an image from your computer</span><br />
+				JPEG, PNG, GIF - 50 MB file limit</p>
+				</p>
+			</div>
+			<p>This will help identify you when your local iTech meet to help repair or purchase your device</p>
+		</div>
+	</div>
+
+	<h3>Assist Paragraph</h3>
+	<div class="icr-dev-component">
+		<div class="icr-main-assist-paragraph">
+			<p>It seems your primary login, phil@icracked.com is not yet validated. Please click the button in the validation email we sent to you. If you lost or never received the validation email, we'd be happy to <a href="#" class="icr-main-link">resend it</a>.</p>
+		</div>
+	</div>
+
+	<h3>Link Selection</h3>
+	<div class="icr-dev-component">
+		<div class="icr-main-link-selection">
+			<p>Begin <a href="#" class="icr-main-link">Repair</a> / <a href="#" class="icr-main-link-accent">Trade-In</a></p>
+		</div>
+	</div>
+
+	<h3>Description Link</h3>
+	<div class="icr-dev-component">
+		<div class="icr-main-action-link">
+			<p>Add a <a class="icr-main-link">Plan</a></p>
+		</div>
+	</div>
+
+	<h3>Subsection Navigation</h3>
+	<div class="icr-dev-component">
+		<ul class="icr-port-sub-section-nav">
+			<li class="icr-active"><a href="#">Profile</a></li>
+			<li><a href="#">Password</a></li>
+			<li><a href="#">Billing</a></li>
+			<li><a href="#">Notifications</a></li>
+		</ul>
+	</div>
+
+	<h3>Data Attribute &amp; Generic Spec </h3>
+	<div class="icr-dev-component">
+	<table class="icr-main-generic-spec">
+		<tr>
+			<th>Device Covered</th>
+			<td>iPhone 4 - 32 GB in White</td>
+		</tr>
+		<tr>
+			<th>Membership Price</th>
+			<td>$7.00 per month</td>
+		</tr>
+		<tr>
+			<th>Coverage Type</th>
+			<td>Accidental Damage</td>
+		</tr>
+		<tr>
+			<th>Membership Perks</th>
+			<td><a href="#" class="icr-main-link">View Perks</a></td>
+		</tr>
+	</table>
+	</div>
+
+	<h3>Form</h3>
+	<div class="icr-dev-component">
+		<form class="icr-main-form">
+			<fieldset>
+				<label for="name">
+					<span>Name</span>
+					<input type="text" id="name">
+				</label>
+				<label for="email">
+					<span>Email</span>
+					<input type="email" id="email">
+				</label>
+				<label for="phone">
+					<span>Phone Number</span>
+					<input type="tel" id="phone">
+				</label>
+				<label for="zipcode">
+					<span>Zip Code</span>
+					<input type="text" id="zipcode">
+				</label>
+			</fieldset>
+			<div class="icr-main-button-group">
+				<button class="icr-main-button">Save</button>
+				<button class="icr-main-button-aux">Cancel</button>
+			</div>
+		</form>
+	</div>
+
+	<h3>Main Link</h3>
+	<div class="icr-dev-component">
+		<a href="#" class="icr-main-link">View</a>
+		<a href="#" class="icr-main-link-accent">View</a>
+	</div>
+
+	<h3>Small Switch</h3>
+	<div class="icr-dev-component">
+		<div class="icr-port-top-switch">
+			<p class="icr-port-active-switch"><a href="#" class="icr-port-link-padding">1 active</a><a href="#">3 available</a></p>
+			<p><a href="#" class="icr-main-link">Add Device</a></p>
+		</div>
+	</div>
+
+	<h3>Warning Call Out</h3>
+	<div class="icr-dev-component">
+		<div class="icr-port-attention-warning">
+			<p class="icr-port-warning-item">Please make sure that the information below is correct as your local iTech will use this information to contact you about your repair.</p>
+		</div>
+	</div>
+
+	<h3>Attention Call Out</h3>
+	<div class="icr-dev-component">
+		<div class="icr-port-attention-info">
+			<p class="icr-port-info-item">Please make sure that the information below is correct as your local iTech will use this information to contact you about your repair.</p>
+		</div>
+	</div>
+
+	<h3>Basic Table</h3>
+	<div class="icr-dev-component">
+		<table class="icr-port-basic-table">
+			<tr>
+				<td>Name:</td>
+				<td>Phil Keys</td>
+			</tr>
+			<tr>
+				<td>Number:</td>
+				<td>650-456-6834</td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td>phil@icracked.com</td>
+			</tr>
+		</table>
+	</div>
+
+	<h3>Breadcrumbs</h3>
+	<div class="icr-dev-component">
+		<ul class="icr-port-breadcrumbs">
+			<li><a>Membership</a></li>
+			<li class="icr-active"><a>Nickname</a></li>
+		</ul>
+	</div>
+
+	<h3>Small Drop Down Menu</h3>
+	<div class="icr-dev-component">	
+		<div class="icr-port-small-dropdown-options">
+			<ul>
+				<li>Device Details</li>
+				<li>Remove Details</li>
+				<li>Transfer Plan</li>
+			</ul>
+		</div>
+	</div>
+</div>
+

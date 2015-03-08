@@ -1,0 +1,38 @@
+<div class="icr-port-view-dashboard">
+
+	<h1>Good Morning, {{storage.user.firstName}}</h1>
+
+	<div class="icr-port-view-dashboard-callout">
+		<p>Welcome to your iCracked account. This is your dashboard, where you can see the tasks that need your attention as well as any requests you currently have with your local iTechs.</p>
+		<p>If you would like to know all the feature of your dashboard, take a <a href="#" class="icr-main-link">quick tour</a>.</p>
+	</div>
+	<div class="icr-port-next-step">
+		<h3>Next Steps</h3>
+
+		<section>
+			<p class="icr-port-step-privacy"><div class="media-content">Your primary login, phil@icracked.com is not yet validated. Please click the button in the validation email we sent to you. If you lost or never received the validation email, we’d be happy to <a href="" class="icr-main-link">resend it</a>.</div></p>
+		</section>
+		<section>
+			<p class="icr-port-step-profile"><div class="media-content"><a ui-sref="account" class="icr-main-link">Add a profile picture</a> to your account. This will allow your local iTechs to know who they are meeting when you request repair and trade-in services.</a></p>
+		</section>
+	</div>
+	<h3>Your Current Activity</h3>
+	<table class="icr-port-table-item-list">
+		<thead>
+			<tr>
+				<th>Device</th>
+				<th>Status</th>
+				<th>Modified</th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tr ng-repeat="activity in dashboard.activities">
+			<td><h4>{{activity.device.title}}</h4>
+			<small>{{activity.device.service}}</small></td>
+			<td><small>{{activity.status}}</small></td>
+			<td><small>{{activity.modified | timeago}}</small></td>
+			<td><small><a class="icr-main-link">View</a></small></td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,79 @@
+<h3>Account Details</h3>
+
+<input type="text" ng-model="uploadProgress">
+
+<div class="icr-port-view-profile">
+	
+	<div class="icr-port-view-profile-form">
+
+		<form class="icr-main-form" name="profileDetailsForm" ng-submit="profile.save(profile.user)">
+			<fieldset>
+				<label for="name">
+					<span>Name</span>
+					<input id="name" type="text" name="name" ng-model="profile.user.fullName" required>
+				</label>
+				
+				<div icr-validate-message="profileDetailsForm.name"></div>
+
+				<label for="email">
+					<span>Email</span>
+					<input type="email" ng-model="profile.user.email" name="email" required>
+				</label>
+				<div icr-validate-message="profileDetailsForm.email"></div>
+
+				<intl-tel-input ng-model="profile.user.phone"></intl-tel-input>
+<!-- 
+				<div icr-validate-message="profileDetailsForm.phone"></div> -->
+			<!--
+				We're going to store their used locations instead of keying off of zip
+
+				<label for="phone">
+					<span>Zip Code</span>
+					<input type="zip" ng-model="profile.user.zip" name="zip" required>
+				</label>
+			-->
+ 
+				<div icr-validate-message="profileDetailsForm.zip"></div>
+			</fieldset>
+			<input class="icr-main-button" type="submit" ng-disabled="profileDetailsForm.$invalid || !profileDetailsForm.modified" value="Save">
+		</form>
+		<button class="icr-main-button-aux" ng-show="profileDetailsForm.modified" ng-click="profileDetailsForm.reset()">Cancel</button>
+
+	</div>
+
+	<div class="icr-port-view-profile-upload">
+
+		<h4>Picture</h4>
+		<p>This will help identify you when your local iTechs meet to help repair or purchase your device.</p>
+		<div class="icr-port-upload" ng-file-drop="profile.uploadProfileImage($files[0])" ng-file-drag-over-class="icr-port-on-drag" ng-show="dropSupported">
+
+			<div class="icr-port-upload-drop-zone" ng-file-select="profile.uploadProfileImage($files[0])">
+
+				<div class="icr-port-upload-status-cover" ng-if="profile.uploading">
+					<div class="icr-port-upload-status">
+						<div class="icr-port-upload-status-content">
+							<span class="icr-port-upload-percent">{{profile.percentUploaded}}%</span>
+							<span>Loading...</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="media-graphic">
+					<img ng-src="{{frame.picture.ref.full || 'https://www.icracked.com/public/img/default_avatar.png'}}">
+					<!-- <progress value=".5"></progress> -->
+				</div>
+
+				<div class="media-content">
+					<p><span>Choose an image from your computer</span></p>
+					<p>JPEG, PNG, GIF, 50MB file limit</p>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div ng-file-drop-available="dropSupported=true" ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+
+ 	</div>
+
+</div>

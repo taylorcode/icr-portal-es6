@@ -1,0 +1,36 @@
++create-media(icr-port-next-step)
+	no-op: 1
+	
+$next-step: 'privacy', 'profile'
+
+@each $item in $next-step
+	.icr-port-step-#{$item}
+		+get-media(icr-port-next-step, '.svg-ico-portal-#{$item}')
+		+media(except-handhelds)
+			padding-right: 30px
+
+.icr-port-view-dashboard
+
+	&-callout
+		+callout-container(20px, 20px, 20px, 20px)
+		margin-bottom: 30px
+
+.icr-port-next-step
+	p
+		&:before 
+			+media(handhelds) 
+				display: none
+	section
+		+display-flex
+		margin-bottom: 30px
+		.media-content
+			line-height: 26px
+			+media(above-small-screens)
+				max-width: 620px
+		&:first-of-type
+			padding-bottom: 30px
+			+add-border(bottom)
+		&:last-of-type
+			margin-bottom: 50px
+
+

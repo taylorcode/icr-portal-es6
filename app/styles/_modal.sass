@@ -1,0 +1,63 @@
+// MOVETO variables within color map
+$modal-background-color: rgba(92, 102, 117, .6)
+$modal-padding: 20px
+
+// merge icr-port-modal with icr-main-modal and move up to main
+// TODO round off the pixel values, fix font fixes, adjust spacing between buttons
+// move variables that control basic values into a map
++create-media(icr-port-close, (middle, standard, after))
+	no-op: 1
+
+.icr-port-modal
+	background: white
+	border-radius: 3px
+	overflow: hidden
+	position: relative
+	margin: 10% 2% 0 2%
+	+media(above-small-screens)
+		width: 600px
+	&-overlay
+		+display-flex
+		+justify-content(center)
+		+align-items(flex-start)
+		position: fixed
+		height: 100%
+		width: 100%
+		background: $modal-background-color
+		z-index: map-get($z-index, overlay)
+
+	&-header
+		+add-border(bottom)
+		padding: 22px 28px 22px 28px
+		background: color(input-background)
+		h3
+			text-align: left
+			font-size: 16px
+
+	&-content
+		padding: 32px
+	
+	&-close
+		+get-media(icr-port-close, '.svg-ico-portal-delete')
+		background-color: transparent
+		position: absolute
+		right: 20px
+		top: 20px
+		
+	&-button-group
+		text-align: right
+		padding: 15px 28px
+
+// transitions
+.icr-port-modal-overlay
+	@include transition-duration(.2s)	
+	.icr-port-modal
+		@include transition-duration(.2s)
+	&.ng-enter
+		.icr-port-modal
+			@include transform(scale(.9))
+	&.ng-enter-active
+		.icr-port-modal
+			@include transform(scale(1.05))	
+	&.ng-leave
+		@include transition-duration(.5s)

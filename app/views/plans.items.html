@@ -1,0 +1,26 @@
+<div class="icr-port-view-plan-items">
+	<table class="icr-port-table-item-list" ng-if="plan.plans.length">
+
+		<thead>
+			<tr>
+				<th>Device</th>
+				<th>Coverage</th>
+				<th>Type</th>
+				<th>Current Status</th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tr ng-repeat="plan in plan.plans">
+			<td>{{plan.devices[0].title}} <br />
+				<small>{{plan.devices[0].nickname}}</small></td>
+			<td>{{plan.coverage.start | date}}&ndash;{{plan.coverage.end | date}}</td>
+			<td>{{plan.coverageType}}</td>
+			<td>{{plan.status}}</td>
+			<td><a ui-sref="plan.basic.details({policyId: plan.id})" class="icr-main-link">View</a></td>
+		</tr>
+
+	</table>
+
+	<small ng-if="!plan.plans.length">You have no plans.</small>
+</div>

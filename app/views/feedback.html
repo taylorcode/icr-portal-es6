@@ -1,0 +1,29 @@
+<div class="icr-port-view-feedback">
+	<h3>Feedback</h3>
+	<p>We work very hard to improve our products and services to meet your needs. We are always keen to hear your feedback and are thankful to hear about your experience with iCracked. We will respond to you as quickly as we can! </p>
+	
+	<form class="icr-main-form" name="feedbackForm" ng-submit="feedback.send(feedback.message)">
+			<fieldset>
+<!-- 				<label for="name">
+					<span>Name</span>
+					<input id="name" type="text" name="name" ng-model="feedback.fullName" required>
+				</label>
+
+				<div icr-validate-message="profileDetailsForm.name"></div>
+
+				<label for="email">
+					<span>Email</span>
+					<input type="email" ng-model="feedback.details.email" name="email" required>
+				</label>
+
+				<div icr-validate-message="profileDetailsForm.email"></div> -->
+
+				<label for="message">
+					<span>Message</span>
+					<textarea ng-model="feedback.message" name="message" class="extended-input" ng-minlength="6" required></textarea>
+				</label>
+
+			</fieldset>
+			<input class="icr-main-button" type="submit" ng-disabled="feedbackForm.$invalid || feedbackForm.$submitted" value="Send Message">
+		</form>
+</div>

@@ -1,0 +1,26 @@
+<div class="icr-port-top-switch">
+	<p class="icr-port-active-switch">1 Claim Completed</p>
+	<div class="icr-main-link-selection">
+		<p><a href="#" class="icr-main-link">Repair</a> / <a href="#" class="icr-main-link-accent">Trade-In</a></p>
+	</div>
+</div>
+
+<table class="icr-port-table-item-list">
+	<thead>
+		<tr>
+			<th>Device</th>
+			<th>Issue</th>
+			<th>Date</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tr ng-repeat="activity in planClaims.activities">
+		<td>{{activity.device.title}}<br />
+			<small>{{activity.device.nickname}}</small></td>
+		<td>{{activity.services}}</td>
+		<td>{{activity.modified | date:'shortDate'}}</td>
+		<td>Completed</td>
+		<td><a ui-sref="devices" class="icr-main-link">View Details</a></td>
+	</tr>
+</table>

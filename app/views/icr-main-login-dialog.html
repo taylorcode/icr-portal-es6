@@ -1,0 +1,27 @@
+<!-- this should not be an H1, just here to get working-->
+<div class="icr-port-modal-login">
+	<h1>Sign In</h1>
+
+	<div class="icr-main-login-dialog-top-wrapper">
+		<p class="icr-main-login-dialog-error-message">Looks like the email or password you are trying to use is incorrect!</p>
+		<form name="loginForm" class="icr-main-form" ng-submit="loginDialog.login(credentials)">
+			<fieldset>
+				<label for="email">
+					<span>Email</span>
+					<input id="email" name="email" type="email" ng-model="credentials.username" required>
+				</label>
+				<label for="password">
+					<span>Password</span>
+					<input id="password" name="password" type="password" ng-model="credentials.password" required>
+				</label>
+				<a href="/login/iforgot" class="icr-main-login-dialog-forget">Forget password?</a>
+				<label class="icr-main-login-dialog-checkbox">
+					<input type="checkbox" class="icr-main-control-input">
+					<span>Remember Me</span>
+				</label>
+				<input type="submit" class="icr-main-button" value="Sign In" ng-disabled="loginForm.$invalid || loginForm.$submitted">
+			</fieldset>
+		</form>
+	</div>
+</div>
+<!--<p>Don't have an iCracked account? <a href="" class="icr-main-link">Sign up</a> today.</p>-->

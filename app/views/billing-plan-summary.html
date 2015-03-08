@@ -1,0 +1,14 @@
+<table class="icr-port-table-item-list-membership">
+	<tr>
+		<td>Billing Period</td>
+		<td colspan="2">You will be billed next on {{billingPlan.dueDate | date}}</td>
+	</tr>
+	<tr>
+		<td>Payment Source</td>
+		<td>You are currently using a {{billingPlan.payment.cardType}} card ending in {{billingPlan.payment.lastFour}}&nbsp;&nbsp;&nbsp;<a ui-sref="account.billing.edit" class="icr-main-link">Change</a></td>
+	</tr>
+	<tr>
+		<td>Cost</td>
+		<td colspan="2">This plan costs {{billingPlan.cost | currency}} per {{billingPlan.plan.period | timeAdjToNoun}}</td>
+	</tr>
+</table>

@@ -1,0 +1,138 @@
+// Place a single comment:
+
+// DIRECTIVE directive-name
+
+// before the definition of any directive.
+
+// @directive icr-main-validate-message
+
+.icr-main-validate-message
+	[ng-message]
+		background-color: color(highlight-warning)
+		padding: 6px 6px
+		position: absolute
+		font-size: 12px
+		top: -12px
+		left: 25px
+
+$icr-ui-messenger-ber-height: 68px
+
+%icr-message-bar
+	height: $icr-ui-messenger-ber-height
+	display: block
+	bottom: 0
+
+%icr-ui-messenger
+
+.icr-ui-messenger
+	&--assure
+		//extend %icr-ui-messenger
+		display: block
+		height: 0
+		overflow: hidden
+		position: fixed
+		width: 100%
+		left: 0
+		bottom: -$icr-ui-messenger-ber-height
+		+transition-duration(.3s) // bar down transition, or all transitions if others are not specified
+		text-align: center
+		line-height: 68px
+		&.icr-loading
+			+hide-text // hide the text because we want to show the loading symbol
+			+transition-delay(.25s) // delay before bar up
+			//+transition-duration(.5s) // bar up transition
+			@extend %icr-message-bar
+			background: #F1F3F9 // clearly change
+		&.icr-loaded
+			color: white // clearly change
+			//+transition-duration(.2s) // switch bar transition, or bar up when response is fast
+			@extend %icr-message-bar
+			background: #9CCC66 // clearly change
+		&.icr-load-fail
+			color: white // change
+			@extend %icr-message-bar // group
+			background: red // change
+
+//////////////////////////////
+/// Login Modal ////
+//////////////////////////////
+
+.icr-failure
+	display: block
+	-webkit-transform-origin: center center
+	-ms-transform-origin: center center
+	-webkit-transform-origin: center center
+	-webkit-animation-name: shake
+	-ms-animation-name: shake
+	-webkit-animation-name: shake
+	-webkit-animation-duration: 200ms
+	-ms-animation-duration: 200ms
+	-webkit-animation-duration: 200ms
+	-webkit-animation-iteration-count: 2
+	-ms-animation-iteration-count: 2
+	-webkit-animation-iteration-count: 2
+	-webkit-animation-timing-function: linear
+	-ms-animation-timing-function: linear
+	-webkit-animation-timing-function: linear
+	-webkit-animation-delay: 0s
+	-ms-animation-delay: 0s
+	-webkit-animation-delay: 0s
+
+
+@-webkit-keyframes shake
+	0%
+		transform: translate(3px, 0)
+	50%
+		transform: translate(-3px, 0)
+	100% 
+		transform: translate(0, 0)
+
+.icr-port-modal-login
+	+media(handhelds)
+		padding: 20px
+	+media(except-handhelds)
+		padding: 50px
+
+.icr-main-login-dialog
+	h1
+		text-align: center
+	p
+		text-align: center
+	&-error-message
+		color: color(error-border)
+		font-style: italic
+		margin-top: 20px
+		display: none
+		
+	&-checkbox
+		span
+			font-family: ProximaNova-normal
+			vertical-align: top
+		.icr-main-control-input
+			padding-top: 6px
+			margin-right: 10px
+			top: 6px
+			&::after
+				top: 6px
+
+	&-forget
+		+media(except-handhelds)
+			float: right
+		font-style: italic
+		padding-top: 15px
+		color: color(link-copy)
+		&:hover
+			text-decoration: underline
+
+	&-top-wrapper
+		+media(except-handhelds)
+			min-width: 400px
+
+		.icr-main-form
+			input[name="password"]
+				margin-bottom: 15px
+
+			.icr-main-button
+				+media(except-handhelds)
+					margin-left: 35%
+				margin-top: 30px

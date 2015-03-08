@@ -1,0 +1,41 @@
+<div class="icr-port-view-notifications">
+	<form class="icr-main-form" ng-submit="notifications.updateSettings(notifications.notifications)">
+		
+		<fieldset>
+			<legend>Updates from iCracked</legend>
+			<label ng-repeat="notification in notifications.notifications.updates" for="icr-port-notif-{{notification.for}}">
+				<input type="checkbox" class="icr-main-control-input" id="icr-port-notif-{{notification.for}}" ng-model="notification.selected" ng-change="notification.selected ? notifications.disableNotificationsOff() : null">
+				<span>
+					{{notification.title}}
+					<br/>
+					<small>{{notification.description}}</small>
+				</span>
+			</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>Activity related to you</legend>
+			<label ng-repeat="activity in notifications.notifications.activities" for="icr-port-notif-{{notification.for}}">
+				<input type="checkbox" class="icr-main-control-input" id="icr-port-notif-{{notification.for}}" ng-model="activity.selected">
+				<span>
+					{{activity.title}}
+					<br>
+					<small>{{activity.description}}</small>
+				</span>
+			</label>
+		</fieldset>
+
+		<fieldset class="icr-port-view-notifications-final-field">
+			<label for="icr-port-notif-uncheck">
+				<input type="checkbox" class="icr-main-control-input" id="icr-port-notif-uncheck" ng-model="notifications.notificationsOff" ng-change="notifications.notificationsOff ? notifications.disableNotifications() : null">
+				<span>
+					Don't Send Me Any Email
+					<br>
+					<small>Will only receive critical account emails</small>
+				</span>
+			</label>
+		</fieldset>
+
+		<input type="submit" value="Save Changes" class="icr-main-button">
+	</form>
+</div>

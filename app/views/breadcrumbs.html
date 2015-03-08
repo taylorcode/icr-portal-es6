@@ -1,0 +1,8 @@
+<ul class="icr-port-breadcrumbs">
+	<li ng-repeat="step in steps | filter: {ncyBreadcrumb: '!'}" ng-class="{'icr-active': $last}">
+		<a ng-href="{{$last || (step.autoRedirect && !steps[$index + 1].ncyBreadcrumb.label) ? '' : step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a>
+	</li>
+</ul>
+
+
+

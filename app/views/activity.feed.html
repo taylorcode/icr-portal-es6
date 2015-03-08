@@ -1,0 +1,27 @@
+<div class="icr-port-view-activity">
+	<div class="icr-port-view-activity-top">
+		<h1>Your Activity</h1>
+		<div class="icr-main-link-selection">
+			<p>Begin <a href="#" class="icr-main-link">Repair</a> / <a href="#" class="icr-main-link-accent">Trade-In</a></p>
+		</div>
+	</div>
+	<table class="icr-port-table-item-list">
+		<thead>
+			<tr>
+				<th>Device</th>
+				<th>Quote</th>
+				<th>Status</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tr ng-repeat="activity in activity.activities">
+			<td><h4>{{activity.device.title}}</h4>
+				<small>{{activity.device.status}}</td>
+			<td><h4>$25</h4></td>
+			<td><h4>{{activity.device.title}}</h4>
+				<small>{{activity.modified | date}}</small></td>
+				<small>{{activity.modified | date:'shortDate'}}</small></td>
+			<td><a ui-sref="activity.completed" class="icr-main-link">More Details</a></td>
+		</tr>
+	</table>
+</div>

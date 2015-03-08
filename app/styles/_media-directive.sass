@@ -1,0 +1,107 @@
+%icr-u-pseudo-icon
+  content: ''
+  background-repeat: no-repeat
+  background-position: center
+  
+// this is our base media class
+=icr-u-media-element-props
+  display: table
+  .media-graphic
+    vertical-align: middle
+  .media-content, .media-graphic
+    display: table-cell
+    
+=icr-u-icr-u-media--stacked-props
+  text-align: center
+  
+=icr-u-generate-media($breakpoint)
+  %icr-u-media-element
+    +icr-u-media-element-props
+  %icr-u-media--stacked
+    +icr-u-icr-u-media--stacked-props
+  @media screen and (max-width: $breakpoint)
+    %icr-u-media-element--mobile-#{$breakpoint}
+      +icr-u-media-element-props
+    %icr-u-media--stacked--mobile-#{$breakpoint}
+      +icr-u-icr-u-media--stacked-props
+  @media screen and (min-width: $breakpoint + 1)
+    %icr-u-media-element--except-mobile-#{$breakpoint}
+      +icr-u-media-element-props
+    %icr-u-media--stacked--except-mobile-#{$breakpoint}
+      +icr-u-icr-u-media--stacked-props
+    
+=icr-u-media--stacked($icon, $arrangement)
+  @if $icon
+    &::#{$arrangement}
+      display: inline-block
+
+=icr-u-media--standard($content-alignment, $icon, $arrangement)
+  .media-content
+    vertical-align: $content-alignment
+  @if $icon
+    &::#{$arrangement}
+      display: table-cell
+
+=icr-u-media($content-alignment, $mode, $arrangement, $breakpoint, $icon: false)
+
+  @if $mode == stacked or $mode == decompress
+    @extend %icr-u-media--stacked
+    +icr-u-media--stacked($icon, $arrangement)
+    
+  @if $mode == standard
+    @extend %icr-u-media-element
+    +icr-u-media--standard($content-alignment, $icon, $arrangement)
+    
+  @if $mode == decompress
+    @media screen and (max-width: $breakpoint)
+      @if $breakpoint
+        @extend %icr-u-media-element--mobile-#{$breakpoint}
+      +icr-u-media--standard($content-alignment, $icon, $arrangement)
+        
+  @if $mode == compress
+    @media screen and (max-width: $breakpoint)
+      @if $breakpoint
+        @extend %icr-u-media--stacked--mobile-#{$breakpoint}
+      +icr-u-media--stacked($icon, $arrangement)
+    @media screen and (min-width: $breakpoint + 1)
+      @if $breakpoint
+        @extend %icr-u-media-element--except-mobile-#{$breakpoint}
+      +icr-u-media--standard($content-alignment, $icon, $arrangement)
+      
+  @if $icon
+    &::#{$arrangement}
+      @extend #{$icon}
+      @extend %icr-u-pseudo-icon
+
+
+=get-media($name, $icon: false, $selectorMap: ())
+  $get-media-temp-map: map-get($icr-u-media-store, $name) //(middle, standard, false, before)
+  // really just fail-safe setting default values here
+  // sass has no other method for checking existance of a value in a list
+  $content-alignment-temp: if(length($get-media-temp-map) > 0, nth($get-media-temp-map, 1), middle)
+  $mode-temp: if(length($get-media-temp-map) > 1, nth($get-media-temp-map, 2), standard)
+  $arrangement-temp: if(length($get-media-temp-map) > 2, nth($get-media-temp-map, 3), before)
+  $breakpoint-temp: if(length($get-media-temp-map) > 3, nth($get-media-temp-map, 4), false)
+  
+  +icr-u-media($content-alignment-temp, $mode-temp, $arrangement-temp, $breakpoint-temp, $icon)
+  @extend %#{$name}
+  // loop through selector map and generate state classes
+  @each $selector, $icon-state in $selectorMap
+    &#{$selector}
+      &::#{nth($get-media-temp-map, 3)}
+        @extend #{$icon}-#{$icon-state}
+        
+// sass list to store maps (with embedded lists) of the settings for each list
+$icr-u-media-store: ()
+
+@function icr-u-create-media($name, $props)
+  @return map-merge($icr-u-media-store, ($name: $props))
+  
+// mixin that registers the media with all settings, and creates an abstract class for use within get-media
+=create-media($name, $props: ())
+  $icr-u-media-store: icr-u-create-media($name, $props) !global
+  // only way to check for existance of a property in sass
+  @if length($props) > 3
+    +icr-u-generate-media(nth($props, 4)) // register the media directives
+  @at-root %#{$name} // @at-root not needed, although the next version of sass might require it
+    @content

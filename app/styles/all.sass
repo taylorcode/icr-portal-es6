@@ -1,0 +1,15 @@
+// NOTE should use a different approach to importing a shared module
+// file importation issue
+// https://github.com/wonja/libsass/commit/1d39b78728a7d23985a7cfe3980bd84ba04bcaf5
+@import ../../../../common/src/shared_modules/main/app/styles/all
+@import ../images/svg-output/sass/sprite-svg-data, icons-merged
+
+@import variables, components, resets, mixins, media, styles, transitions, password, billing
+@import media-directive
+@import classes, modal
+@import directives
+@import frame, login, navigation
+@import dashboard, help, feedback, perks, activity, plan-details, plan-devices, plan-items, term, contract, requested, completed, notifications, profile, billing-dialog
+
+// remove import when this plugin is moved to icr-main
+@import vendor, intl-tel-input

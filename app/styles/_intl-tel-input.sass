@@ -1,0 +1,65 @@
+// intl-tel-input should be separated out into own module or part of icr-main
+
+// @directive intl-tel-input
+intl-tel-input
+	display: block
+	position: relative
+
+.intl-tel-input-sample
+	@include transition-duration(.3s)
+	font-size: 14px
+	position: absolute
+	top: 0
+	right: 0
+	opacity: 0
+	color: $copyright-color
+	&::before
+		content: 'ex: '
+	&.icr-visible
+		opacity: 1
+		top: -20px
+
+.intl-tel-input
+	display: block
+	input
+		padding-left: 59px !important
+		line-height: 14px
+		display: none
+	&::after
+		content: attr(data-country-name) ' ' attr(data-dial-code) 
+		position: absolute
+		line-height: 40px
+		display: block
+		font-family: ProximaNova-normal
+		color: #5B6675
+		top: 1px
+		left: 52px
+		z-index: 2
+		pointer-events: none
+		width: 100%
+	.selected-flag
+		width: auto
+		padding: 0 17px 0 17px
+		.flag
+			top: auto
+			position: static
+			display: inline-block
+			margin-top: 14px
+		.arrow
+			left: auto
+			right: 20px
+			position: absolute
+			border-left: 5px solid transparent
+			border-right: 5px solid transparent
+			border-top: 6px solid #555
+	.flag-dropdown
+		position: static
+		display: block
+		height: 40px
+
+
+// host-specific modification of the display of the input
+// TODO should be just ".icr"
+.icr-wrapper
+	.icr-tel-input-sample
+		font-family: ProximaNova-normal

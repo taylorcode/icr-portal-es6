@@ -1,0 +1,23 @@
+// module specific view transitions
+ui-view
+	&.icr-port
+		@include transition-duration(.5s)
+		+hardware-accelerate
+		&.ng-enter
+			opacity: 0
+			@include transform(translateX(100px))
+		&.ng-enter-active
+			opacity: 1
+			@include transform(translateX(0))
+		&.ng-leave
+			display: none
+
+.icr-main-validate-message
+	@include transition-duration(.3s)
+	+hardware-accelerate
+	&.ng-active
+		opacity: 1
+		@include transform(translateY(0))
+	&.ng-hide, &.ng-inactive
+		opacity: 0
+		@include transform(translateY(-10px))

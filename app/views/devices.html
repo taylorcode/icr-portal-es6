@@ -1,0 +1,20 @@
+<h1>Your Devices</h1>
+
+<table class="icr-port-table-item-list">
+	<thead>
+		<tr>
+			<th>Device Details</th>
+			<th>Services</th>
+			<th>Advantage</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tr ng-repeat="device in devices.devices">
+		<td>{{device.title}}</td>
+		<td ng-if="device.nickname">{{device.nickname}}</td>
+		<td ng-if="!device.nickname"><a>Add a Nickname</a></td>
+		<td ng-if="device.plan">{{device.plan}}</td>
+		<td ng-if="!device.plan">Not Active</td>
+	</tr>
+	
+</table>

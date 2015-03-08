@@ -1,0 +1,35 @@
+.icr-port-view-profile
+	margin-bottom: 60px
+	+media(above-small-screens)
+		+display-flex
+	
+	&-form
+		+media(to-small-screens)
+			margin-bottom: 30px
+			padding-bottom: 30px
+			+add-border (bottom)
+		+media(small-screens)
+			margin-bottom: 20px
+		+media(above-small-screens)
+			width: 80%
+			margin-right: 50px
+		+media(except-handhelds)
+			&:after
+				clear: both
+				content: ''
+				display: table
+
+	.icr-main-button
+		+media(handhelds)
+			margin-bottom: 20px
+
+	.icr-main-button-aux
+		+media(handhelds)
+			margin-bottom: 20px
+		+media(except-handhelds)
+			margin-left: 20px
+			float: left
+			margin-left: 20px
+
+	.icr-port-upload
+		margin-top: 20px

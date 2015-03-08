@@ -1,0 +1,72 @@
+<div class="icr-port-view-plan-details">
+	<div class="icr-port-view-plan-details-data-wrapper">
+		<table class="icr-main-generic-spec">
+			<tr>
+				<th>Policy ID</th>
+				<td>{{plan.plan.id}}</td>
+			</tr>
+			<tr>
+				<th>Coverage Type</th>
+				<td>{{plan.plan.coverageType}}</td>
+			</tr>
+			<tr>
+				<th>Membership Price</th>
+				<td>{{plan.plan.price | currency}} per month</td>
+			</tr>
+			<tr>
+				<th>Device</th>
+				<td>{{plan.plan.devices[0].title}}</td>
+			</tr>
+			<tr>
+				<th>Serial IMEI</th>
+				<td>{{plan.plan.devices[0].serial}}</td>
+			</tr>
+			<tr>
+				<th>Issues Under Coverage</th>
+				<td><a href="http://support.icracked.com/hc/en-us/articles/202890629-What-issues-are-covered-for-my-iPhone-iPad-or-Samsung-Device-under-Advantage" target="_blank" class="icr-main-link">See All</td>
+			</tr>
+			<tr>
+				<th>Contact Seller</th>
+				<td>iTech {{plan.plan.contractSeller.name}}<br>
+					{{plan.plan.contractSeller.phone}}<br>	
+					{{plan.plan.contractSeller.email}}</td>
+			</tr>
+		</table>
+
+		<table class="icr-main-generic-spec">
+			<tr>
+				<th>Start Date - End Date</th>
+				<td>{{plan.plan.coverage.start | date:'shortDate'}} &ndash; {{plan.plan.coverage.end | date:'shortDate'}}</td>
+			</tr>
+			<tr>
+				<th>Coverage Period</th>
+				<td>{{plan.plan.period}}</td>
+			</tr>
+			<tr>
+				<th>Contract Status</th>
+				<td>{{plan.plan.status}}</td>
+			</tr>
+			<tr>
+				<th>Membership Perks</th>
+				<td><a href="#" class="icr-main-link" ui-sref="perks">View Perks</a></td>
+			</tr>
+<!-- 		<tr>
+				{{plan}}
+				<th>Terms &amp; Conditions</th>
+				<td><a ui-sref="plan.terms" class="icr-main-link">HTML</a> / <a ng-href="/v2/api/protection/terms/id" class="icr-main-link">PDF</a></td>
+			</tr> -->
+			<tr>
+				<th>Service Contract &amp; Terms</th>
+				<td>
+				<!-- RELEASENOTE <a ui-sref="plan.contract" class="icr-main-link">HTML</a> / --><a ng-href="/v2/api/protection/contract/{{plan.plan.id}}" class="icr-main-link">PDF</a></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<!-- NOTE technical artifact to allow child billing.edit to be routeable, no view actually opens in here -->
+<ui-view></ui-view>
+
+<!--{{plan.plan}}
+<a ui-sref="plan.terms">Terms &amp; Conditions</a>
+<a ui-sref="plan.contract">Service Contract</a>-->

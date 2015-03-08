@@ -1,0 +1,21 @@
+<div class="icr-port-view-perks">
+	<h1>Perks</h1>
+	<p>Below is your list of perks for your Advantage membership. To use a perk, just click on the link, and enter the promo code at time of purchase.</p>
+	<table class="icr-port-table-item-list">
+		<thead>
+			<tr>
+				<th>Perk</th>
+				<th>Discount</th>
+				<th>Code</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tr ng-repeat="perk in perks.perks">
+			<td>{{perk.title}} <br />
+				<small>{{perk.url}}</small></td>
+			<td>{{perk.item}}</td>
+			<td>{{perk.code}}</td>
+			<td><a target="_blank" ng-href="{{perk.perkUrl}}" class="icr-main-link">View</a></td>
+		</tr>
+	</table>
+</div>

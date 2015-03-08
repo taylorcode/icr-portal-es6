@@ -1,0 +1,17 @@
+8/13/14
+Track anything that needs to be addressed for this project in this file. Date every entry.
+
+Please use the following marks in your source files, and in this file. Please mark entries with —-entry—- when completed.
+
+NOTE: Description of how the code works (when it isn't self evident).
+
+XXX: Warning about possible pitfalls, can be used as NOTE:XXX:.
+
+HACK: Not very well written or malformed code to circumvent a problem/bug. Should be used as HACK:FIXME:.
+
+FIXME: This works, sort of, but it could be done better. (usually code written in a hurry that needs rewriting).
+
+BUG: There is a problem here.
+
+TODO: No problem, but additional code needs to be written, usually when you are skipping something.
+

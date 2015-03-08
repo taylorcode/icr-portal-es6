@@ -1,0 +1,59 @@
+.icr-port-view-help
+	h2
+		font-family: ProximaNova-normal
+		margin-bottom: 20px
+	button
+		+media(large-screens)
+			min-width: 300px
+
+.icr-port-self-support
+	+media(above-small-screens)
+		+display-flex
+		justify-content: space-between
+	+add-border(bottom)
+	padding-bottom: 40px
+	margin-bottom: 40px
+	&-text
+		max-width: 550px
+
+.icr-port-self-support-link
+	padding-top: 25px
+
+	a.icr-main-button
+		@extend %icr-main-button
+		padding: 22px 45px 22px 45px
+		
+.icr-port-concierge-team
+	+media(except-handhelds)
+		+display-flex
+		justify-content: space-between
+	&-text
+		max-width: 550px
+		+media(handhelds)
+			margin-bottom: 30px
+
+.icr-port-concierge-team-contact
+	min-width: 300px
+
++create-media(icr-port-concierge-team-contact)
+	no-op: 1
+	
+$contact-items: 'chat', 'email', 'call'
+
+@each $item in $contact-items
+	.icr-port-contact-help-#{$item}
+		+get-media(icr-port-concierge-team-contact, '.svg-ico-portal-help-#{$item}')
+
+.icr-port-contact-items
+	li
+		padding-bottom: 30px
+		line-height: 28px
+		&:before 
+			padding-right: 30px
+		a
+			font-family: ProximaNova-semi-bold
+
+.icr-port-contact-help-call
+	&:before 
+		background-position: top
+

@@ -1,0 +1,60 @@
+$billing-dialog-input-margin: 20px
+
+.icr-main-billing-dialog-card-info
+	+display-flex
+	margin-bottom: 30px
+	label:first-of-type
+		padding-right: 30px
+
+.icr-main-billing-dialog-submit
+	+display-flex
+	+add-border(top)
+	padding-top: 25px
+
+%svg-card-icon
+	background-position: 11px center
+	padding-left: 50px !important
+	
+%icr-ccard
+	position: relative
+	&::before
+		+transform(scale(.5))
+		+transition-duration(.2s)
+		+transition-property(opacity, transform)
+		content: ''
+		display: inline-block
+		height: 100%
+		width: 50px
+		opacity: 0
+		position: absolute
+	.icr-main-input
+		@extend %svg-card-icon
+
+=icr-ccard-type($types)
+	@each $type in $types
+		&-#{$type}
+			&::before
+				@extend %icr-ccard-type
+				@extend .svg-ico-ccard-#{$type}
+
+%icr-ccard-type
+	&::before
+		+transform(scale(1))
+		opacity: 1
+		background-repeat: no-repeat
+		background-position: center
+
+.icr-ccard
+	@extend %icr-ccard
+	&-type
+		+icr-ccard-type(visa mastercard amex discover)
+
+.icr-ccard-cvc
+	@extend %svg-card-icon
+	@extend .svg-nodims-ico-ccard-back-of-card
+
+.icr-ccard.icr-ccard-type- .icr-main-input
+	@extend .svg-nodims-ico-ccard-default-front
+	
+.icr-main-input--expiration
+	padding-left: 15px !important
